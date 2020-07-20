@@ -32,7 +32,7 @@ passport.use(new AmazonStrategy({
   callbackURL: "http://localhost:3000/auth/amazon/callback"
 },
   (accessToken, refreshToken, profile, cb) => {
-    chalk.yellow(JSON.stringify(profile));
+    console.log(chalk.yellow(JSON.stringify(profile, null, 2)));
     db.user = { ...profile };
     cb(null, db.user);
   }
@@ -46,7 +46,7 @@ passport.use(new FacebookStrategy({
   callbackURL: "http://localhost:3000/auth/facebook/callback"
 },
   (accessToken, refreshToken, profile, cb) => {
-    chalk.blue(JSON.stringify(profile));
+    console.log(chalk.blue(JSON.stringify(profile, null, 2)));
     db.user = { ...profile };
     cb(null, db.user);
   }
@@ -60,7 +60,7 @@ passport.use(new GithubStrategy({
   callbackURL: "http://localhost:3000/auth/github/callback"
 },
   (accessToken, refreshToken, profile, cb) => {
-    chalk.blue(JSON.stringify(profile));
+    console.log(chalk.blue(JSON.stringify(profile, null, 2)));
     db.user = { ...profile };
     cb(null, db.user);
   }
@@ -74,7 +74,7 @@ passport.use(new GoogleStrategy({
   callbackURL: "http://localhost:3000/auth/google/callback"
 },
   (accessToken, refreshToken, profile, cb) => {
-    chalk.blue(JSON.stringify(profile));
+    console.log(chalk.blue(JSON.stringify(profile, null, 2)));
     db.user = { ...profile };
     cb(null, db.user);
   }
@@ -88,7 +88,7 @@ passport.use(new InstagramStrategy({
   callbackURL: "http://localhost:3000/auth/instagram/callback"
 },
   (accessToken, refreshToken, profile, cb) => {
-    chalk.blue(JSON.stringify(profile));
+    console.log(chalk.blue(JSON.stringify(profile, null, 2)));
     db.user = { ...profile };
     cb(null, db.user);
   }
@@ -102,7 +102,7 @@ passport.use(new SpotifyStrategy({
   callbackURL: "http://localhost:3000/auth/spotify/callback"
 },
   (accessToken, refreshToken, profile, cb) => {
-    chalk.green(JSON.stringify(profile));
+    console.log(chalk.green(JSON.stringify(profile, null, 2)));
     db.user = { ...profile };
     cb(null, db.user);
   }
@@ -116,7 +116,7 @@ passport.use(new TwitchStrategy({
   callbackURL: "http://localhost:3000/auth/twitch/callback"
 },
   (accessToken, refreshToken, profile, cb) => {
-    chalk.blue(JSON.stringify(profile));
+    console.log(chalk.blue(JSON.stringify(profile, null, 2)));
     db.user = { ...profile };
     cb(null, db.user);
   }
