@@ -45,4 +45,10 @@ router.get('/twitch/callback', passport.authenticate('twitch', { failureRedirect
   res.redirect('/');
 });
 
+//LOGOUT
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
+
 module.exports = router;

@@ -2,16 +2,21 @@ require('./setup/passport-setup');
 
 const express = require('express');
 const cors = require("cors");
+const session = require("express-session");
+const MongoStore = require('connect-mongo')(session);
+const passport = require('passport');
+
 const app = express();
 
 app.use(cors());
-
-const session = require("express-session");
-const bodyParser = require("body-parser");
-const passport = require('passport');
-
-app.use(session({ secret: "my-deep-little-secret", resave: false, saveUninitialized: false }));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({
+  secret: "my-deep-little-secret",
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({ url: "mongodb://localhost/connect-mongo-session" })
+}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
