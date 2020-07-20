@@ -4,7 +4,7 @@ const router = require('express').Router();
 // AUTH ROUTES
 
 //AMAZON
-router.get('/amazon', passport.authenticate('amazon'));
+router.get('/amazon', passport.authenticate('amazon', { scope: ["profile"] }));
 router.get('/amazon/callback', passport.authenticate('amazon', { failureRedirect: '/login' }), (req, res) => {
   res.redirect('/');
 });
@@ -22,7 +22,7 @@ router.get('/github/callback', passport.authenticate('github', { failureRedirect
 });
 
 //GOOGLE
-router.get('/google', passport.authenticate('google'));
+router.get('/google', passport.authenticate('google', { scope: ["profile", "email"] }));
 router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   res.redirect('/');
 });
