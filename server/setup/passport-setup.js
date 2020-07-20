@@ -7,7 +7,7 @@ const InstagramStrategy = require('passport-instagram').Strategy;
 const SpotifyStrategy = require('passport-spotify').Strategy;
 const TwitchStrategy = require('passport-twitch').Strategy;
 
-const ENV = require('../../config/index');
+const ENV = require('../config');
 const chalk = require('chalk');
 
 let db = { user: {} }
