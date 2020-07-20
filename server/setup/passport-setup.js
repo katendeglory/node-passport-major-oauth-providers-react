@@ -5,7 +5,7 @@ const GithubStrategy = require('passport-github').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const InstagramStrategy = require('passport-instagram').Strategy;
 const SpotifyStrategy = require('passport-spotify').Strategy;
-const TwitchStrategy = require('passport-twitch').Strategy;
+const TwitchStrategy = require('passport-twitch.js').Strategy;
 
 const ENV = require('../../config/index');
 const chalk = require('chalk');
@@ -102,7 +102,7 @@ passport.use(new SpotifyStrategy({
   callbackURL: "http://localhost:3000/auth/spotify/callback"
 },
   (accessToken, refreshToken, profile, cb) => {
-    chalk.blue(JSON.stringify(profile));
+    chalk.green(JSON.stringify(profile));
     db.user = { ...profile };
     cb(null, db.user);
   }

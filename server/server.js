@@ -10,7 +10,7 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const passport = require('passport');
 
-app.use(session({ secret: "my-deep-little-secret" }));
+app.use(session({ secret: "my-deep-little-secret", resave: false, saveUninitialized: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
